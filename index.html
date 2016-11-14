@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Impact Game</title>
+	<style type="text/css">
+		html,body {
+			background-color: #333;
+			color: #fff;
+			font-family: helvetica, arial, sans-serif;
+			margin: 0;
+			padding: 0;
+			font-size: 12pt;
+		}
+
+		#canvas {
+			width: 480px;
+			height: 320px;
+			border: 1px solid #3b3d42;
+			image-rendering: optimizeSpeed;
+			-webkit-interpolation-mode: nearest-neighbor;
+		}
+		
+		#noCanvas {
+			padding: 90px 32px;
+			font-weight: bold;
+			border: 1px solid #3b3d42;
+			background-color: #000;
+		}
+	</style>
+
+	<script type="text/javascript">
+		if (!window.location.search) {
+			var roomName = prompt('Enter room name to enter, or leave blank for random');
+			window.location.search = roomName || Math.random().toString(16).slice(-10);
+		}
+		var roomName = window.location.search;
+	</script>
+    <script type="text/javascript" src="lib/net/socket.io.js"></script>
+    <script type="text/javascript" src="lib/net/adapter.js"></script>
+	<script type="text/javascript" src="lib/messages.js"></script>
+	<script type="text/javascript" src="game.min.js"></script>
+</head>
+<body>
+	<canvas id="canvas"></canvas>
+    <div>
+        0. Use arrows to move <br/>
+        1. X - jump<br/>
+        2. C - shoot<br/>
+        3. Collect tubes to recharge weapon<br/>
+        4. Be careful of acid burns!<br/>
+        5. Invite your friends by sending them a link to page url<br/>
+    </div>
+</body>
+</html>
